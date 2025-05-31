@@ -9,7 +9,7 @@ Você pode acompanhar nossos emuladores mais recentes em www.l2jdream.club
 Requirements
 ---
 - Windows or Linux Operating System **with Java JDK 8 and MySQL 5.7**.
-- IntelliJ IDEA Community v2022.3 -> [Download]([https://pdl.denky.dev.br](https://drive.google.com/file/d/1X4oYHnqxXIYRhdh4rN-WVXauSzJXmTp5/view))
+- IntelliJ IDEA Community v2022.3 -> [Download]([https://pdl.denky.dev.br](https://drive.google.com/file/d/1X4oYHnqxXIYRhdh4rN-WVXauSzJXmTp5/view)
 - At least 4 GB of RAM and 2 Cores.
 - Ports 2106 TCP and 7777 TCP opened in all firewalls if you want the server to be accessible to the public.
 - Interlude client fully updated.
