@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Scripts" default="Build" basedir=".">
+	<description>
+		This script will build the PartyFarm Mod.
+	</description>
+
+	<property name="nome" location="FarmZone" />
+	<property name="src" location="java" />
+	<property name="libs" location="../Tools/Base_Libs" />
+	<property name="dist" location="dist" />
+	<property name="build" location="Build" />
+	<property name="bin" location="bin" />
+	<property name="tool" location="../Tools" />
+	
+	<path id="classpath">
+		<fileset dir="${libs}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="verifyRequirements" description="Checks if the necessary requirements for building L2J are fulfilled">
+		<available classname="javax.script.ScriptContext" property="JDK8.present" />
+		<fail unless="JDK8.present" message="JDK 8 or greater is required." />
+	</target>
+
+	<target name="init" depends="verifyRequirements" description="Create the output directories.">
+		<!-- Deleta Pastas -->
+		<delete dir="${bin}" />
+		<delete dir="${build}" />
+		<!-- Cria Pastas -->
+		<mkdir dir="${bin}" />
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init" description="Compile the source.">
+		<javac destdir="${bin}" optimize="on" debug="on" source="1.8" target="1.8" nowarn="off" includeantruntime="false" encoding="UTF-8" >
+			<src path="${src}" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+    <target name="Build" depends="compile" description="Create the jar file">
+		<!-- Copila ClanFullItem.ext.jar -->
+		<jar destfile="${build}/libs/PartyFarm.ext.jar">
+			<fileset dir="${bin}" >
+			</fileset>
+		</jar>
+		<delete dir="${bin}" />
+    </target>
+
+	<target name="Release" depends="Build" description="Create the jar files.">
+		<!-- Copiar DataPack-->
+		<copy todir="${build}/" includeemptydirs="true">
+			<fileset dir="${dist}/" />
+		</copy>
+		<copy todir="../../L2JDreamV3_Source_Java8/dist" includeemptydirs="true">
+			<fileset dir="${build}" />
+		</copy>
+	</target>
+
+	<target name="Teste" depends="Build" description="Create the jar files.">
+		<copy todir="../../L2JDreamV3_Pack" includeemptydirs="true">
+			<fileset dir="${build}" />
+		</copy>
+		<delete dir="${bin}" />
+		<delete dir="${build}" />
+	</target>
+
+	<target name="Zipa" depends="Release" description="Create the jar files.">
+		<echo message="Compressing compiled revision Pack." />
+		<exec executable="${tool}/7-Zip/7z.exe" failifexecutionfails="true" outputproperty="sevenzip_output">
+			<arg line="a -mx=9 -m0=LZMA ./L2JDreamV3_PartyFarm.7z ${build}/*" />
+		</exec>
+		<delete dir="${bin}" />
+		<delete dir="${build}" />
+	</target>
+</project>
