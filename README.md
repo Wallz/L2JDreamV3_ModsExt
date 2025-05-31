@@ -2,8 +2,8 @@
 
 Este repositório contém códigos e exemplos de Mods Ext.jar para o projeto L2JDREAM V3.
 ---
-L2JDream V3 é um projeto de emulador L2J ( Lineage 2 Java ) feito em Java.
-A Dream V3 teve seu desenvolvimento iniciado no ano de 2019 e encontra-se ativo até os dias de hoje.
+L2JDream V3 é um projeto de emulador L2J ( Lineage 2 Java ) feito em Java.<br>
+A Dream V3 teve seu desenvolvimento iniciado no ano de 2019 e encontra-se ativo até os dias de hoje
 Você pode acompanhar nossos emuladores mais recentes em www.l2jdream.club
 
 Requirements
