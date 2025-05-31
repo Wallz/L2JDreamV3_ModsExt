@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Scripts" default="Build" basedir=".">
 	<description>
-		This script will build the AutoSkills Mod.
+		This script will build the AutoBanking Mod.
 	</description>
 
-	<property name="nome" location="RandomRewards" />
+	<property name="nome" location="AutoBanking" />
 	<property name="src" location="java" />
 	<property name="libs" location="../Tools/Base_Libs" />
 	<property name="dist" location="dist" />
@@ -40,8 +40,8 @@
 	</target>
 
     <target name="Build" depends="compile" description="Create the jar file">
-		<!-- Copila AutoSkills.ext.jar -->
-		<jar destfile="${build}/libs/RandomRewards.ext.jar">
+		<!-- Copila ClanFullItem.ext.jar -->
+		<jar destfile="${build}/libs/AutoBanking.ext.jar">
 			<fileset dir="${bin}" >
 			</fileset>
 		</jar>
@@ -58,7 +58,7 @@
 	<target name="Zipa" depends="Release" description="Create the jar files.">
 		<echo message="Compressing compiled revision Pack." />
 		<exec executable="${tool}/7-Zip/7z.exe" failifexecutionfails="true" outputproperty="sevenzip_output">
-			<arg line="a -mx=9 -m0=LZMA ./L2JDreamV3_RandomRewards.7z ${build}/*" />
+			<arg line="a -mx=9 -m0=LZMA ./L2JDreamV3_AutoBanking.7z ${build}/*" />
 		</exec>
 		<delete dir="${bin}" />
 		<delete dir="${build}" />

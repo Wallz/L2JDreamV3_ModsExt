@@ -53,17 +53,6 @@
 		<copy todir="${build}/" includeemptydirs="true">
 			<fileset dir="${dist}/" />
 		</copy>
-		<copy todir="../../L2JDreamV3_Source_Java8/dist" includeemptydirs="true">
-			<fileset dir="${build}" />
-		</copy>
-	</target>
-
-	<target name="Teste" depends="Build" description="Create the jar files.">
-		<copy todir="../../L2JDreamV3_Pack" includeemptydirs="true">
-			<fileset dir="${build}" />
-		</copy>
-		<delete dir="${bin}" />
-		<delete dir="${build}" />
 	</target>
 
 	<target name="Zipa" depends="Release" description="Create the jar files.">
